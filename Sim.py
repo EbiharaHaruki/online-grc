@@ -1,6 +1,8 @@
 import numpy as np
 from Agent import Agent
 from Env import Env
+from tqdm import tqdm
+
 rng = np.random.default_rng()
 
 class Sim():
@@ -55,7 +57,7 @@ class Sim():
         return rewards
 
     def exe_muti_sims(self):
-        for n_sim in range(self.sim_size):
+        for n_sim in tqdm(range(self.sim_size)):
             self.agt.initialize()
             self.env.initialize()
             rewards = self.exe_sim()  #ここで1回sim回ってる
