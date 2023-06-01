@@ -22,7 +22,7 @@ ENV = {
 AGENT = {
     'e_greedy': {
         'num_action': 4,
-        'policy_dic': {'policy': 'e_greedy', 'epsilon': 0.1},
+        'policy_dic': {'policy': 'e_greedy', 'epsilon': 0.0001},#o.ooo1
         'lm_dic': {'learning_method': 'Q', 'alpha': 0.1, 'gamma': 0.9}
     },
     'RS_GRC': {
@@ -32,13 +32,13 @@ AGENT = {
     },
     'RS_GRC_lamda': {
         'num_action': 4,
-        'policy_dic': {'policy': 'RS_GRC', 'zeta': 1, 'aleph_g': 7.5, 'gamma_g': 0.9, 'sampling': 'on_policy', 'gs_interval': 1},
+        'policy_dic': {'policy': 'RS_GRC', 'zeta': 1, 'aleph_g': 7.5, 'gamma_g': 0.9, 'sampling': 'off_policy', 'gs_interval': 1},
         'lm_dic': {'learning_method': 'q_lamda', 'alpha': 0.1, 'gamma': 0.9, 'lamda': 0.9}
     }
 }
 
 SIM = {
-    'sim_size': 100,
-    'step_size': 1000,
-    'epi_size': 1000
+    'sim_size': 10,
+    'step_size': 10,
+    'epi_size': 10
 }

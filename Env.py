@@ -1,7 +1,7 @@
 import numpy as np
 
 #状態sの表現をどうするか
-#左上が原点
+#左上が原点；
 class Env():
     def __init__(self, env_dic = None):
         self.task = env_dic['task']
@@ -38,13 +38,13 @@ class Env():
     def update_env(self, s, a):
         sx = s[0];  sy = s[1];
         if a == 0:
-            ax = 0;  ay = -1;
+            ax = 0;  ay = -1;#↑
         elif a == 1:
-            ax = 1;  ay = 0;
+            ax = 1;  ay = 0;#→
         elif a == 2:
-            ax = 0;  ay = 1;
+            ax = 0;  ay = 1;#↓
         elif a == 3:
-            ax = -1;  ay = 0;
+            ax = -1;  ay = 0;#←
 
         s_next = (sx+ax, sy+ay)
         r = self.get_reward(s_next)

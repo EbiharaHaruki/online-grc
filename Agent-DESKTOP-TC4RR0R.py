@@ -31,19 +31,8 @@ class Agent():
         #print(f'self.sx = {self.sx},self.sy = {self.sy}')
         print(f'maxQ = {np.max(self.Q)}')
 
-    def make_action(self,n_epi,reward,var):
-        #a = self.policy.policy(self.agt_pos, self.sx, self.sy, self.Q,n_epi,stepsize,reward)#policy.py l25
-        a = self.policy.policy(self.agt_pos,self.Q,n_epi,reward,var)
-        return a
-    
-    def make_action_greedy(self):
-        #a = self.policy.policy(self.agt_pos, self.sx, self.sy, self.Q,n_epi,stepsize,reward)#policy.py l25
-        a = self.policy.greedy(self.agt_pos,self.Q)
-        return a
-    
-    def make_action_Q(self,s_next):
-        #a = self.policy.policy(self.agt_pos, self.sx, self.sy, self.Q,n_epi,stepsize,reward)#policy.py l25
-        a = self.policy.policy(s_next,self.Q)
+    def make_action(self,n_epi,stepsize,reward):
+        a = self.policy.policy(self.agt_pos, self.sx, self.sy, self.Q,n_epi,stepsize,reward) #policy.py l25
         return a
 
     def make_sample(self):
@@ -62,8 +51,3 @@ class Agent():
         #self.Q[sx, sy, a] = self.learning_method.learning_method(self.Q, self.agt_pos, a, r, s_next)
         self.Q = self.learning_method.learning_method(self.Q, self.agt_pos, a, r, s_next)
         self.agt_pos = s_next
-    
-    def printQ(self):
-        print(self.Q)
-    
-    
